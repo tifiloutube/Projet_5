@@ -24,10 +24,11 @@ header a{
   margin-bottom: 5%;
 }
 
-.product__presentation img {
-  width: 45%;
-  margin: auto;
 
+.product__presentation img {
+  width: 35%;
+  margin: auto;
+  box-shadow: 0 0 7px #dddddd;
 }
 
 
