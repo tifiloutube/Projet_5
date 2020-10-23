@@ -16,6 +16,31 @@ header a{
     height: 100%;
 }
 
+h1{
+    text-align: center;
+}
+
+#product{
+    width: 80%;
+    background-color: bisque;
+    display: flex;
+    margin: auto;
+}
+#product img{
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 15%;
+    width: 50%;
+}
+
+.add-basket{
+
+}
+
+.product__info{
+    margin-top: 5%;
+}
 footer{
     display: flex;
     justify-content: space-around;
