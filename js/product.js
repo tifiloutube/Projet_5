@@ -22,7 +22,7 @@ fetch("http://localhost:3000/api/teddies")
 const init = function() {
     let temp, cln, product
     product = document.getElementById("product");
-    temp = document.querySelector("productrow");
+    temp = document.querySelector("#productrow");
     cln = temp.cloneNode(true);
     temp2 = cln.textContent;
     product.innerHTML = temp2
