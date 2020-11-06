@@ -22,7 +22,9 @@
     <list default="true" id="b7efcd1c-9803-410e-8fac-668c5368cb33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/confirmation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/panier.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/panier.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +55,11 @@
       <option name="presentableId" value="Default" />
       <updated>1603414661812</updated>
       <workItem from="1603414663789" duration="2364000" />
-      <workItem from="1603447013510" duration="3605000" />
+      <workItem from="1603447013510" duration="4793000" />
+      <workItem from="1603576789612" duration="137000" />
+      <workItem from="1604142065313" duration="1314000" />
+      <workItem from="1604316559550" duration="1905000" />
+      <workItem from="1604420625934" duration="405000" />
     </task>
     <servers />
   </component>
