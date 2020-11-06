@@ -19,18 +19,17 @@ fetch("http://localhost:3000/api/teddies")
 }
 */
 
-const init = function() {
+const init() = {
     let temp, cln, product
     product = document.getElementById("product");
     temp = document.querySelector("#productrow");
     cln = temp.cloneNode(true);
     temp2 = cln.textContent;
     product.innerHTML = temp2
-    
+}
     /*let product, template
     product = document.getElementById("product");
     template = document.querySelector("#productrow");
     for(let i=0; i<5; i++){
         product.appendChild(template.importNode(content, true));
     }*/   
-}
