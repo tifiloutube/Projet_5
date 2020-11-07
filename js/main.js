@@ -12,13 +12,13 @@ const Init = {
 
         product.forEach((p, i) => {
             const template = document.importNode(Init.product.content, true)
-            const item= template .getElementById("product")
-            picture = template.getElementById(("picture"))
-            name = template.getElementById(("name"))
-            description = template.getElementById(("description"))
-            price = template.getElementById(("price"))
+            const item= template.querySelector(".product")
+            picture = template.querySelector(".picture")
+            name = template.querySelector(".name")
+            description = template.querySelector(".description")
+            price = template.querySelector(".price")
 
-            //picture.innerHTML = img.src
+            //picture.src = p.img
             name.innerHTML = p.name
             description.innerHTML = p.description
             price.innerHTML = p.price
@@ -29,9 +29,9 @@ const Init = {
     },
 
     showProductPage: function (e) {
-        const productId = e.currenTarget.dataset.productId
+        const productId = e.currenTarget.dataset.productId //problem here
         console.log(`hello world ${productId}`)
     }
 }
 
-window.onload = Init.buildTeddiesItems()
+window.onload = Init.buildTeddiesItems

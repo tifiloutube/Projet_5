@@ -10,27 +10,28 @@ const ProductApi = {
         })
         const products = [
             {
-                title: 'Norbert',
+                name: 'Norbert',
+                //picture: 'http://localhost:3000/images/teddy_4.jpg',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
                 price: 2900
             },
             {
-                title: 'Arnold',
+                name: 'Arnold',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 price: 3900
             },
             {
-                title: 'Lenny and Carl',
+                name: 'Lenny and Carl',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 price: 5900
             },
             {
-                title: 'Gustav',
+                name: 'Gustav',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 price: 4500
             },
             {
-                title: 'Garfunkel',
+                name: 'Garfunkel',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 price: 5500
             },
