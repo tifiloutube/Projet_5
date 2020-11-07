@@ -1,35 +1,50 @@
-fetch("http://localhost:3000/api/teddies")
-    .then(function (response) {
-        return response.json()
-    }).then(function(data) {
-        console.log(data)
-    })
-/*  if ("content" in document.createElement("template")){
-    var product = document.querySelector(".product");
-    var clone = document.importNode(template.content, true);
-    var picture = clone.querySelector("#picture")
-    var name = clone.querySelector("#name")
-    var description = clone.querySelector("#description")
-    var prix = clone.querySelector("#prix")
-    name[0].textContent = "Norbert"
-    description[0] = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    prix[0] = 2900
-} else {
+const ProductApi = {
+    baseUrl: "http://localhost:3000/api/teddies",
 
-}
-*/
+    getProducts: async function () {
+        fetch("http://localhost:3000/api/teddies")
+        .then(function (response) {
+            return response.json()
+        }).then(function(data) {
+            console.log(data)
+        })
+        const products = [
+            {
+                title: 'Norbert',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                price: 2900
+            },
+            {
+                title: 'Arnold',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                price: 3900
+            },
+            {
+                title: 'Lenny and Carl',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                price: 5900
+            },
+            {
+                title: 'Gustav',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                price: 4500
+            },
+            {
+                title: 'Garfunkel',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                price: 5500
+            },
+        ]
 
-const init() = {
-    let temp, cln, product
-    product = document.getElementById("product");
-    temp = document.querySelector("#productrow");
-    cln = temp.cloneNode(true);
-    temp2 = cln.textContent;
-    product.innerHTML = temp2
+        return products
+        console.log('List all products')
+    },
+
+    getProduct: function (id) {
+        console.log('Get a single product')
+    },
+
+    createOrder: function () {
+        console.log('Create an order')
+    }
 }
-    /*let product, template
-    product = document.getElementById("product");
-    template = document.querySelector("#productrow");
-    for(let i=0; i<5; i++){
-        product.appendChild(template.importNode(content, true));
-    }*/   
