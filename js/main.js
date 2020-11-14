@@ -18,7 +18,7 @@ const Init = {
             description = template.querySelector(".description")
             price = template.querySelector(".price")
 
-            //picture.src = p.img
+            picture.src = p.img
             name.innerHTML = p.name
             description.innerHTML = p.description
             price.innerHTML = p.price
@@ -29,8 +29,8 @@ const Init = {
     },
 
     showProductPage: function (e) {
-        const productId = e.currenTarget.dataset.productId //problem here
-        console.log(`hello world ${productId}`)
+        const productId = e.currentTarget.dataset.productId
+        console.log(`je suiss clické depuis le produit numéro ${productId}`)
     }
 }
 

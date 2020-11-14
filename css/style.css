@@ -18,22 +18,28 @@ header a{
   height: 100%;
 }
 
-.product__presentation{
+.product{
   display: flex;
-  width: 100%;
-  margin-bottom: 5%;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
 }
 
-
-.product__presentation img {
+.product img {
   width: 35%;
   margin: auto;
   box-shadow: 0 0 7px #dddddd;
 }
 
+.product__description {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
 
 
-.product__description{
+.shipping{
   height: 400px;
   background-color: #ededef;
   display: flex;
@@ -43,11 +49,11 @@ header a{
 }
 
 
-.product__description img{
+.shipping img{
   width: 15%;
 }
 
-.product__description div{
+.shipping div{
   margin: auto;
   width: 15%;
   text-align: center;
