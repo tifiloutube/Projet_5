@@ -25,13 +25,14 @@ fetch(urlApi)
       myImg.classList.add('imageTeddie');
       myPara2.classList.add('descriptionTeddie');
 
-      myArticle.setAttribute('data-id' , teddie[i]._id); 
+      myArticle.setAttribute('data-id', teddie[i]._id); 
+      myArticle.classList.add('article');
       myH2.textContent = "Nom du produit : " + teddie[i].name;
       myPara1.textContent = "prix : " + teddie[i].price/100+"€";
       myImg.src = teddie[i].imageUrl;
       myPara2.textContent = "Description : " + teddie[i].description;
 
-      console.log(myArticle);
+      //console.log(myArticle);
       //console.log(myH2);
       //console.log(myPara1);
       //console.log(myImg);
@@ -45,18 +46,21 @@ fetch(urlApi)
 
       teddies.appendChild(myArticle);
 
-      const article = document.querySelector('article');
-      article.addEventListener('click', event => {
-      window.open(`../html/product.html?id=${[teddie[i]._id]}`);
-      }, false)
-      //console.log(teddie[i]._id);
     }
   }
   showTeddies();
   //console.log(showTeddies);
-  //console.log(teddie);
+
+  const articles = document.querySelectorAll('article');
+
+  for (let article of articles) {
+      article.addEventListener('click', event => {
+          window.open(`../html/product.html?id=${[article.dataset.id]}`);
+      });
+    console.log(article.dataset.id);
+    //console.log(articles);
+  }
 })
 .catch(function(error) {
   console.log(error);
 });
-
