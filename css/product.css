@@ -16,8 +16,20 @@ header a{
     height: 100%;
 }
 
-h1{
+h1 {
     text-align: center;
+}
+  
+article{
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: #ededef;
+}
+  
+.imageTeddie{
+    width: 30%;
+    box-shadow: 0 0 7px #dddddd;
 }
 
 #product{
