@@ -1,21 +1,3 @@
-header {
-    display: flex;
-    justify-content: space-around;
-    background-color: #F3E9F1;
-}
-
-header img{
-    width: 20%;
-}
-
-header a{
-    font-size: 2.5em;
-    color: gray;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 100%;
-}
-
 h1 {
     text-align: center;
 }
@@ -48,8 +30,4 @@ article{
 
 .product__info{
     margin-top: 5%;
-}
-footer{
-    display: flex;
-    justify-content: space-around;
 }
