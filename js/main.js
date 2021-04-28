@@ -37,7 +37,7 @@ fetch(urlApi)
       //console.log(myPara1);
       //console.log(myImg);
       //console.log(selectImg);
-      //console.log(myPara2);
+      //console.log(myPara2); 
 
       myArticle.appendChild(myH2);
       myArticle.appendChild(myPara1);
@@ -57,7 +57,7 @@ fetch(urlApi)
       article.addEventListener('click', event => {
           window.open(`../html/product.html?id=${[article.dataset.id]}`);
       });
-    console.log(article.dataset.id);
+    //console.log(article.dataset.id);
     //console.log(articles);
   }
 })

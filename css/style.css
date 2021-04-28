@@ -8,7 +8,7 @@ header {
 }
 
 header img{
-  width: 20%;
+  width: 50%;
 }
 
 header a{
@@ -18,6 +18,19 @@ header a{
   margin-bottom: auto;
   height: 100%;
 } 
+
+.cart {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0.5%;
+  background-color: royalblue;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cart a {
+  color: #ffffff;
+}
 
 /* ************************************************************* MAIN PARTS ************************************************************* */
 

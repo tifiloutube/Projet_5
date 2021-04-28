@@ -3,17 +3,17 @@ const searchParams = new URLSearchParams(window.location.search);
 const teddieId = searchParams.get('id');
 const productShow = document.getElementById('productShow');
 
-console.log(urlApi);
-console.log(searchParams);
-console.log(teddieId);
-console.log(productShow);
+//console.log(urlApi);
+//console.log(searchParams);
+//console.log(teddieId);
+//console.log(productShow);
 
 function selectProduct() {
 fetch(urlApi + "/" + teddieId)
     .then((resp) => resp.json())
     .then(function(data) {
         let teddie = data;
-        console.log(teddie);
+        //console.log(teddie);
 
         const myArticle = document.createElement('article');
         const myH2 = document.createElement('h2');
@@ -41,12 +41,12 @@ fetch(urlApi + "/" + teddieId)
 
         //console.log(myArticle);
         //console.log(myH2);
-        console.log(mySelect);
+        //console.log(mySelect);
         //console.log(myPara1);
         //console.log(myImg);
         //console.log(selectImg);
         //console.log(myPara2);
-        console.log(myButton);
+        //console.log(myButton);
 
         myArticle.appendChild(myH2);
         mySelect.appendChild(myOption);
