@@ -1,23 +1,17 @@
-header {
-    display: flex;
-    justify-content: space-around;
-    background-color: #F3E9F1;
-}
-
-header img{
-    width: 20%;
-}
-
-header a{
-    font-size: 2.5em;
-    color: gray;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 100%;
-}
-
-h1{
+h1 {
     text-align: center;
+}
+  
+article{
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: #ededef;
+}
+  
+.imageTeddie{
+    width: 30%;
+    box-shadow: 0 0 7px #dddddd;
 }
 
 #product{
@@ -36,8 +30,4 @@ h1{
 
 .product__info{
     margin-top: 5%;
-}
-footer{
-    display: flex;
-    justify-content: space-around;
 }
