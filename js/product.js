@@ -29,7 +29,7 @@ fetch(urlApi + "/" + teddieId)
         myPara1.classList.add('priceTeddie');
         myImg.classList.add('imageTeddie');
         myPara2.classList.add('descriptionTeddie');
-        myButton.classList.add('buttonToBasket')
+        myButton.classList.add('buttonToCart')
 
         myArticle.classList.add('article');
         myH2.textContent = "Nom du produit : " + teddie.name;
@@ -64,5 +64,7 @@ fetch(urlApi + "/" + teddieId)
 }
 
 selectProduct();
+
+
 
 
