@@ -1,19 +1,20 @@
 const api = 'http://localhost:3000/api/teddies';
 
-fetch(api)
+function addToCart(){
+    fetch(api + '/' + teddieId)
     .then((resp) => resp.json())
     .then(function(data) {
         let teddie = data;
-        console.log(data);
+        //console.log(data);
         let carts = document.getElementsByClassName('buttonToCart');
-        console.log(carts);
+        //console.log(carts);
 
-for(let j=0; j < carts.length; j++) {
-    carts[j].addEventListener('click', () => {
-        console.log("ajout du produit au panier");
-        cartNumbers(teddie[j]);
-    })
-}
+    for(let j=0; j < carts.length; j++) {
+        carts[j].addEventListener('click', () => {
+            console.log("ajout du produit au panier");
+            cartNumbers(teddie[j]);
+        })
+    }
 
 function onLoadCartNumbers(){
     let productNumbers = localStorage.getItem('cartNumbers');
@@ -23,7 +24,7 @@ function onLoadCartNumbers(){
 }
 
 function cartNumbers(teddie) {
-    console.log("the teddie click is ", teddie);
+    console.log("the teddie click is ", data);
     let productNumbers = localStorage.getItem('cartNumbers');
     productNumbers = parseInt(productNumbers);
 
@@ -37,6 +38,8 @@ function cartNumbers(teddie) {
 }
 onLoadCartNumbers();
 })
+}
+
 
 
 
