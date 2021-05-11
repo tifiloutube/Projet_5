@@ -35,6 +35,19 @@ function cartNumbers(teddie) {
         localStorage.setItem('cartNumbers', 1);
         document.querySelector('.cart span').textContent = 1;  
     } 
+
+    setItem(teddie);
+}
+
+function setItem(data){
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    console.log("My cartItems are", cartItems);
+
+    cartItems = {
+        [teddie]: teddie
+    }
+    localStorage.setItem("productInCart", JSON.stringify(cartItems));
 }
 onLoadCartNumbers();
 })

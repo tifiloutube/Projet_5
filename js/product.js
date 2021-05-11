@@ -1,5 +1,3 @@
-                                        ///////// all const /////////
-
 const teddies = document.getElementById('teddies');
 const urlApi = 'http://localhost:3000/api/teddies';
 const searchParams = new URLSearchParams(window.location.search);
@@ -56,7 +54,7 @@ fetch(urlApi)
         //console.log(article.dataset.id);
         //console.log(articles);
     }
-})
+    })
 .catch(function(error) {
   console.log(error);
 });
