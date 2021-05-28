@@ -83,6 +83,7 @@ function addToCart(){
         //console.log(cartItems);
         let pageContent = document.querySelector('.page-content');
         let pageContentDescription = document.querySelector('.page-content_description');
+        let cartCost = localStorage.getItem('totalCost');
         if(cartItems && pageContent){
             console.log("Au moins un produit est dans le localStorage"); 
             pageContent.removeChild(pageContentDescription);
@@ -120,10 +121,9 @@ function addToCart(){
             pageContent.appendChild(showMyArticle);
 
             showMyArticle.classList.add('allProductsInCarts');
-            let allProductsInCarts = document.getElementsByClassName('allProductsInCarts');
+            let allProductsInCarts = document.querySelector('.allProductsInCarts');
             console.log(allProductsInCarts);
 
-            allProductsInCarts.innerHTML = '';
             Object.values(cartItems).map(item => {
                 allProductsInCarts.innerHTML += `
                 <div class="product">
@@ -139,6 +139,17 @@ function addToCart(){
                 </div>
                 `;
             })
+            allProductsInCarts.innerHTML += `
+            <div class="totalDuPanier">
+                <h4 class="totalDuPanierTitle">
+                    Total du panier
+                </h4>
+                <h4 class="total">
+                    ${cartCost},00€
+                </h4>
+            </div>
+            `
+
         }else{
             console.log("Aucun produits n'est dans le localStorage")
         }
