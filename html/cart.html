@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='../css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/cart.css'>
     <script src="https://kit.fontawesome.com/319da84ffb.js" crossorigin="anonymous"></script>
     <title>Panier</title>
 </head>
@@ -21,9 +22,34 @@
         </div>   
     </header>
 
-    <main>
-        <div id="">
-
+    <main id="cartMain">
+        <div id="page-content" class="page-content">
+            <h1>Panier</h1>
+            <p class="page-content_description">Votre panier est vide 
+            </br> <a href="index.html">Retourner au magasinage</a>
+            </p>
+        </div>
+        <div id="contact">
+            <form action="traitement.php" method="post">
+                <p>
+                    <label for="first-name">Prénom</label> : <input type="text" name="first-name" id="first-name" placeholder="Ex : Préom" />
+                </p>
+                <p>
+                    <label for="last-name">Nom de famille</label> : <input type="text" name="last-name" id="last-name" placeholder="Ex : Nom"/>
+                </p>
+                <p>
+                    <label for="city">Ville</label> : <input type="text" name="city" id="city" placeholder="Ex : Ville">
+                </p>
+                <p>
+                    <label for="adress">Adresse</label> : <input type="text" name="adress" id="adress" placeholder="Ex : Adresse" size="24em">
+                </p>
+                <p>
+                    <label for="postal">Code Postal</label> : <input type="number" name="postal" id="postal" placeholder="Ex : 00000"/>
+                </p>
+                <p>
+                    <label for="email">Email</label> : <input type="email" name="email" id="email" placeholder="Ex : exemple@domaine.com" size="27em"/>
+                </p>
+            </form>
         </div>
     </main>
 
@@ -38,6 +64,7 @@
             <p>Politique de retour</p>
         </div>
     </footer>
+    <script src="../js/product.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/index.js"></script>
 </body>

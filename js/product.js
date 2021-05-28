@@ -20,7 +20,7 @@ fetch(urlApi)
         let teddie = data;
         //console.log(teddie); 
         //console.log(teddie.length);
-        //console.log(teddie[0], teddie[1], teddie[2], teddie[3], teddie[4]);
+
         for (let i = 0; i < teddie.length; i++) {
         const myArticle = document.createElement('article');
         const myH2 = document.createElement('h2');
@@ -63,62 +63,52 @@ fetch(urlApi)
 
                         ///////// Partie concernant la page HTML -> product.html /////////
 
+function selectProduct(){
+    fetch(urlApi + "/" + teddieId).then(function(response){
+        response.json().then(function(data){
+            let teddie = data;
 
-function selectProduct() {
-fetch(urlApi + "/" + teddieId)
-    .then((resp) => resp.json())
-    .then(function(data) {
-        let teddie = data;
-        //console.log(teddie);
+            const myArticle = document.createElement('article');
+            const myH2 = document.createElement('h2');
+            const mySelect = document.createElement('select');
+            const myPara1 = document.createElement('p');
+            const myImg = document.createElement('img');
+            const myPara2 = document.createElement('p');
+            const myButton = document.createElement('button');
 
-        const myArticle = document.createElement('article');
-        const myH2 = document.createElement('h2');
-        const mySelect = document.createElement('select');
-        const myOption = document.createElement('option');
-        const myPara1 = document.createElement('p');
-        const myImg = document.createElement('img');
-        const myPara2 = document.createElement('p');
-        const myButton = document.createElement('button');
+            myH2.classList.add('titleTeddie');
 
-        myH2.classList.add('titleTeddie');
-        mySelect.classList.add('colorsTeddie');
-        myPara1.classList.add('priceTeddie');
-        myImg.classList.add('imageTeddie');
-        myPara2.classList.add('descriptionTeddie');
-        myButton.classList.add('buttonToCart')
+            myPara1.classList.add('priceTeddie');
+            myImg.classList.add('imageTeddie');
+            myPara2.classList.add('descriptionTeddie');
+            myButton.classList.add('buttonToCart')
 
-        myArticle.classList.add('article');
-        myH2.textContent = "Nom du produit : " + teddie.name;
-        myOption.textContent = teddie.colors[0];
-        myPara1.textContent = "prix : " + teddie.price/100+"€";
-        myImg.src = teddie.imageUrl;
-        myPara2.textContent = "Description : " + teddie.description;
-        myButton.textContent = "Ajouter au panier";
+            myArticle.classList.add('article');
+            myH2.textContent = "Nom du produit : " + teddie.name;
+            myPara1.textContent = "prix : " + teddie.price/100+"€";
+            myImg.src = teddie.imageUrl;
+            myPara2.textContent = "Description : " + teddie.description;
+            myButton.textContent = "Ajouter au panier";
 
-        //console.log(myArticle);
-        //console.log(myH2);
-        //console.log(mySelect);
-        //console.log(myPara1);
-        //console.log(myImg);
-        //console.log(selectImg);
-        //console.log(myPara2);
-        //console.log(myButton);
+            myArticle.appendChild(myH2);
+            myArticle.appendChild(mySelect);
+            myArticle.appendChild(myPara1);
+            myArticle.appendChild(myImg);
+            myArticle.appendChild(myPara2);
+            myArticle.appendChild(myButton);
 
-        myArticle.appendChild(myH2);
-        mySelect.appendChild(myOption);
-        myArticle.appendChild(mySelect);
-        myArticle.appendChild(myPara1);
-        myArticle.appendChild(myImg);
-        myArticle.appendChild(myPara2);
-        myArticle.appendChild(myButton);
+            productShow.appendChild(myArticle);
 
-        productShow.appendChild(myArticle);
-    })
-    .catch(function(error) {
-        //console.log(error);
+           // création du menu déroulant pour choisir la couleur. 
+
+           let selectColors = document.querySelector("select");
+
+            data.colors.forEach(couleurs => {
+                let option = document.createElement("option");
+                selectColors.appendChild(option);
+                option.setAttribute("value", "Couleurs");
+                option.textContent = couleurs;
+            });
+        })
     })
 }
-
-
-
-
