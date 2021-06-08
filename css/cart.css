@@ -1,3 +1,28 @@
 #page-content{
     text-align: center;
 }
+.productDescription{
+    display: flex;
+    justify-content: space-around;
+}
+
+.description{
+    display: flex;
+}
+
+.product{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 20%;
+    margin-left: 3%;
+}
+
+.removeAll{
+    height: 20%;
+}
+
+.prix, .quantité, .total{
+    width: 30%;
+    margin-left: 3%;
+    margin-top: 8%;
+}

@@ -32,9 +32,11 @@ function addToCart(){
         productNumbers = parseInt(productNumbers);
 
         if (productNumbers){
+            confirm('Produit ajouté au panier');
             localStorage.setItem('cartNumbers', productNumbers + 1);
             document.querySelector('.cart span').textContent = productNumbers + 1;  
         } else {
+            confirm('Produit ajouté au panier');
             localStorage.setItem('cartNumbers', 1);
             document.querySelector('.cart span').textContent = 1;  
         } 
@@ -84,6 +86,8 @@ function addToCart(){
         let pageContent = document.querySelector('.page-content');
         let pageContentDescription = document.querySelector('.page-content_description');
         let cartCost = localStorage.getItem('totalCost');
+        let contact = document.querySelector('#contact');
+
         if(cartItems && pageContent){
             console.log("Au moins un produit est dans le localStorage"); 
             pageContent.removeChild(pageContentDescription);
@@ -93,12 +97,12 @@ function addToCart(){
             const quantité = document.createElement('h5');
             const total = document.createElement('h5');
             const barreHorizontal = document.createElement('hr');
+            myArticle.classList.add('productDescription')
 
             myArticle.appendChild(produit);
             myArticle.appendChild(prix);
             myArticle.appendChild(quantité);
             myArticle.appendChild(total);
-            myArticle.appendChild(barreHorizontal);
 
             produit.innerHTML = "Produit";
             prix.innerHTML = "Prix";
@@ -106,36 +110,31 @@ function addToCart(){
             total.innerHTML = "Total";
             
             pageContent.appendChild(myArticle);
+            pageContent.appendChild(barreHorizontal);
 
             const showMyArticle = document.createElement('article')
-            //const imgProduit = document.createElement('img');
-            //const prixProduit = document.createElement('p');
-            //const quantitéProduit = document.createElement('p');
-            //const totalPrix = document.createElement('p');
-
-            //showMyArticle.appendChild(imgProduit);
-            //showMyArticle.appendChild(prixProduit);
-            //showMyArticle.appendChild(quantitéProduit);
-            //showMyArticle.appendChild(totalPrix);
 
             pageContent.appendChild(showMyArticle);
 
             showMyArticle.classList.add('allProductsInCarts');
             let allProductsInCarts = document.querySelector('.allProductsInCarts');
-            console.log(allProductsInCarts);
+            //console.log(allProductsInCarts);
 
             Object.values(cartItems).map(item => {
                 allProductsInCarts.innerHTML += `
-                <div class="product">
-                    <img src="${item.imageUrl}">
-                    <span>${item.name}</span>
-                </div>
-                <div class="prix">${item.price/100},00€</div>
-                <div class="quantité">
-                    <span>${item.quantity}</span>
-                </div>
-                <div class="total">
-                    ${item.quantity * item.price/100},00€
+                <div class="description">
+                    <div class="product">
+                        <img src="${item.imageUrl}">
+                        <span>${item.name}</span>
+                    </div>
+                    <div class="prix">${item.price/100},00€</div>
+                    
+                    <div class="quantité">
+                        <span class="span">${item.quantity}</span>
+                    </div>
+                    <div class="total">
+                        ${item.quantity * item.price/100},00€
+                    </div>
                 </div>
                 `;
             })
@@ -144,13 +143,13 @@ function addToCart(){
                 <h4 class="totalDuPanierTitle">
                     Total du panier
                 </h4>
-                <h4 class="total">
+                <h4 class="coupGlobal">
                     ${cartCost},00€
                 </h4>
             </div>
             `
-
         }else{
+            //contact.style.display = 'none';
             console.log("Aucun produits n'est dans le localStorage")
         }
     }
@@ -159,6 +158,64 @@ displayCart();
 })
 }
 
+/*FORMULAIRE*/
+/*Validation de formulaire*/
+//Création de l'objet à envoyer, regroupant le formulaire et les articles
+const commandeUser = {
+    contact: {},
+    panier: [],
+}
 
+urlOrder = 'http://localhost:3000/api/teddies/order';
 
+document.getElementById("formulaire").addEventListener("submit", function (envoi){
+    envoi.preventDefault();
+    //Avant d'envoyer un formulaire, vérification que le panier n'est pas vide.
+    if (localStorage.length == 0){
+        alert("Attention, votre panier est vide.");
+    }
+    else {
+        //Récupération des champs
+        let prenomForm = document.getElementById("prenom").value;
+        let nomForm = document.getElementById("nom").value;
+        let villeForm = document.getElementById("ville").value;
+        let adresseForm = document.getElementById("adresse").value;
+        let codePostalForm = document.getElementById("postal").value;
+        let emailForm = document.getElementById("email").value;
 
+        //Création de l'objet formulaireObjet
+        commandeUser.contact = {
+            firstName: prenomForm,
+            lastName: nomForm,  
+            address: adresseForm,
+            city: villeForm,
+            email: emailForm,
+        }    
+        console.log(commandeUser)
+        //Création du tableau des articles
+        commandeUser.panier = [
+            localStorage.getItem("productsInCart"),
+            localStorage.getItem("totalCost"),
+        ]
+        //panier.forEach(articlePanier =>
+            //commandeUser.products.push(articlePanier._id)
+        //)
+
+        //Envoi des données récupérées
+        const optionsFetch = {
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            method:"POST",
+            body: JSON.stringify(commandeUser),         
+        }     
+
+        fetch(urlOrder, optionsFetch).then(function(response) {
+            response.json().then(function(text) {
+              console.log(text.orderId);
+              //window.location = `../html/confirmation.html?id=${text.orderId}&name=${prenomForm}`
+            });
+        });
+        //localStorage.clear()       
+    }
+})
