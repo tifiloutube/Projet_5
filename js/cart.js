@@ -161,7 +161,7 @@ displayCart();
 /*FORMULAIRE*/
 /*Validation de formulaire*/
 //Création de l'objet à envoyer, regroupant le formulaire et les articles
-const commandeUser = {
+const infoUser = {
     contact: {},
     panier: [],
 }
@@ -184,22 +184,19 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
         let emailForm = document.getElementById("email").value;
 
         //Création de l'objet formulaireObjet
-        commandeUser.contact = {
+        infoUser.contact = {
             firstName: prenomForm,
             lastName: nomForm,  
             address: adresseForm,
             city: villeForm,
             email: emailForm,
         }    
-        console.log(commandeUser)
+        console.log(infoUser)
         //Création du tableau des articles
-        commandeUser.panier = [
+        infoUser.panier = [
             localStorage.getItem("productsInCart"),
             localStorage.getItem("totalCost"),
         ]
-        //panier.forEach(articlePanier =>
-            //commandeUser.products.push(articlePanier._id)
-        //)
 
         //Envoi des données récupérées
         const optionsFetch = {
@@ -207,7 +204,7 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
                 'Content-Type': 'application/json',
             },
             method:"POST",
-            body: JSON.stringify(commandeUser),         
+            body: JSON.stringify(infoUser),         
         }     
 
         fetch(urlOrder, optionsFetch).then(function(response) {
