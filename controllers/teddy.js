@@ -47,6 +47,13 @@ exports.getOneTeddy = (req, res, next) => {
  *
  */
 exports.orderTeddies = (req, res, next) => {
+  console.log("contact",!req.body.contact);
+  console.log("firstName",req.body.contact.firstName);
+  console.log("lastName",req.body.contact.lastName);
+  console.log("address",req.body.contact.address);
+  console.log("city",req.body.contact.city);
+  console.log("email",req.body.contact.email);
+  console.log("products",req.body.contact.products);
   if (!req.body.contact ||
     !req.body.contact.firstName ||
     !req.body.contact.lastName ||
@@ -54,6 +61,7 @@ exports.orderTeddies = (req, res, next) => {
     !req.body.contact.city ||
     !req.body.contact.email ||
     !req.body.products) {
+    console.log('toto');
     return res.status(400).send(new Error('Bad request!'));
   }
   let queries = [];
