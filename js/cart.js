@@ -210,7 +210,7 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
         fetch(urlOrder, optionsFetch).then(function(response) {
             response.json().then(function(text) {
               console.log(text.orderId);
-              window.location = `../html/confirmation.html?id=${text.orderId}&name=${prenomForm}`
+              window.location = `../html/confirmation.html?id=${text.orderId}&name=${prenomForm}&price=${localStorage.getItem("totalCost")}`;
             });
         });
         //localStorage.clear()       
