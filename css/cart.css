@@ -26,3 +26,24 @@
     margin-left: 3%;
     margin-top: 8%;
 }
+
+#contact{
+    text-align: center;
+}
+
+#formulaire{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+#formulaire div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+#formulaire button{
+    margin-top: 10%;
+}

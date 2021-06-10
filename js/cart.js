@@ -159,8 +159,8 @@ displayCart();
 }
 
 /*FORMULAIRE*/
-/*Validation de formulaire*/
 //Création de l'objet à envoyer, regroupant le formulaire et les articles
+
 const infoUser = {
     contact: {},
     panier: [],
@@ -212,7 +212,6 @@ document.getElementById("formulaire").addEventListener("submit", function (envoi
               console.log(text.orderId);
               window.location = `../html/confirmation.html?id=${text.orderId}&name=${prenomForm}&price=${localStorage.getItem("totalCost")}`;
             });
-        });
-        //localStorage.clear()       
+        });   
     }
 })
