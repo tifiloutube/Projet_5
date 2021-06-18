@@ -1,4 +1,5 @@
 const api = 'http://localhost:3000/api/teddies';
+const apiOrder = 'http://localhost:3000/api/teddies/order';
 
 function addToCart(){
     fetch(api + '/' + teddieId)
@@ -82,7 +83,7 @@ function addToCart(){
     function displayCart(){
         let cartItems = localStorage.getItem('productsInCart');
         cartItems = JSON.parse(cartItems);
-        //console.log(cartItems);
+        console.log(cartItems);
         let pageContent = document.querySelector('.page-content');
         let pageContentDescription = document.querySelector('.page-content_description');
         let cartCost = localStorage.getItem('totalCost');
@@ -148,9 +149,6 @@ function addToCart(){
                 </h4>
             </div>
             `
-        }else{
-            //contact.style.display = 'none';
-            console.log("Aucun produits n'est dans le localStorage")
         }
     }
 onLoadCartNumbers();
@@ -158,60 +156,63 @@ displayCart();
 })
 }
 
-/*FORMULAIRE*/
 //Création de l'objet à envoyer, regroupant le formulaire et les articles
-
-const infoUser = {
-    contact: {},
-    panier: [],
-}
 
 urlOrder = 'http://localhost:3000/api/teddies/order';
 
-document.getElementById("formulaire").addEventListener("submit", function (envoi){
-    envoi.preventDefault();
-    //Avant d'envoyer un formulaire, vérification que le panier n'est pas vide.
-    if (localStorage.length == 0){
-        alert("Attention, votre panier est vide.");
-    }
-    else {
-        //Récupération des champs
-        let prenomForm = document.getElementById("prenom").value;
-        let nomForm = document.getElementById("nom").value;
-        let villeForm = document.getElementById("ville").value;
-        let adresseForm = document.getElementById("adresse").value;
-        let codePostalForm = document.getElementById("postal").value;
-        let emailForm = document.getElementById("email").value;
+let cartItems = localStorage.getItem('productsInCart');
+cartItems = JSON.parse(cartItems);
 
-        //Création de l'objet formulaireObjet
-        infoUser.contact = {
-            firstName: prenomForm,
-            lastName: nomForm,  
-            address: adresseForm,
-            city: villeForm,
-            email: emailForm,
-        }    
-        console.log(infoUser)
-        //Création du tableau des articles
-        infoUser.panier = [
-            localStorage.getItem("productsInCart"),
-            localStorage.getItem("totalCost"),
-        ]
 
-        //Envoi des données récupérées
-        const optionsFetch = {
-            headers:{
-                'Content-Type': 'application/json',
+Object.values(cartItems).map(teddie => {
+    //console.log(teddie._id);
+
+    document.getElementById("formulaire").addEventListener("submit", function (envoi){
+        envoi.preventDefault();
+        //Avant d'envoyer un formulaire, vérification que le panier n'est pas vide.
+        if (localStorage.length == 0){
+            alert("Attention, votre panier est vide.");
+        }
+        else {
+            //Récupération des champs
+            let prenomForm = document.getElementById("prenom").value;
+            let nomForm = document.getElementById("nom").value;
+            let villeForm = document.getElementById("ville").value;
+            let adresseForm = document.getElementById("adresse").value;
+            let codePostalForm = document.getElementById("postal").value;
+            let emailForm = document.getElementById("email").value;
+
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+            "contact": {
+                "firstName": prenomForm,
+                "lastName": nomForm,
+                "address": adresseForm,
+                "city": villeForm,
+                "email": emailForm
             },
-            method:"POST",
-            body: JSON.stringify(infoUser),         
-        }     
-
-        fetch(urlOrder, optionsFetch).then(function(response) {
-            response.json().then(function(text) {
-              console.log(text.orderId);
-              window.location = `../html/confirmation.html?id=${text.orderId}&name=${prenomForm}&price=${localStorage.getItem("totalCost")}`;
+            "products": [
+                teddie._id,
+            ]
             });
-        });   
-    }
+
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            total = localStorage.getItem('totalCost');
+
+            fetch(apiOrder, requestOptions).then(function(response) {
+                response.json().then(function(text) {
+                console.log(text.orderId);
+                window.location = `./confirmation.html?id=${text.orderId}&name=${prenomForm}&prix=${total}`
+                });
+            });
+        }
+    })
 })
