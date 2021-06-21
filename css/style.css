@@ -30,6 +30,17 @@ header a{
 
 .cart a {
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.cart div{
+  display: flex;
+}
+.cart p{
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 /* ************************************************************* MAIN PARTS ************************************************************* */
@@ -57,4 +68,61 @@ header a{
 footer{  
   display: flex;
   justify-content: space-around;
+}
+
+
+/* ************************************************************* RESPONSIVE PARTS ************************************************************* */
+
+
+/*-----RESPONSIVE SMARTPHONE-----
+---------------------------------*/
+
+@media screen and (max-width: 1024px){
+  .cart i{
+    display: none;
+  }
+  .cart div{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*-----RESPONSIVE SMARTPHONE-----
+---------------------------------*/
+
+@media screen and (max-width: 475px){
+
+  .cart i{
+    display: none;
+  }
+
+  .cart a{
+    display: flex;
+    font-size: 1em;
+    width: auto;
+  }
+
+  .cart span{
+    margin: auto;
+  }
+
+  .shipping{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .shipping div{
+    width: auto;
+  }
+
+  .shipping img{
+    width: 10%;
+  }
+
+  footer{
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 }

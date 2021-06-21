@@ -47,3 +47,21 @@
 #formulaire button{
     margin-top: 10%;
 }
+
+/* ************************************************************* RESPONSIVE PARTS ************************************************************* */
+
+
+@media screen and (max-width: 1024px){
+    #formulaire{
+        width: auto;
+     }
+}
+
+/*-----RESPONSIVE SMARTPHONE-----
+---------------------------------*/
+
+@media screen and (max-width: 475px){
+    #formulaire{
+       width: auto;
+    }
+}

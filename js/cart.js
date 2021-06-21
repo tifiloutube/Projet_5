@@ -83,14 +83,14 @@ function addToCart(){
     function displayCart(){
         let cartItems = localStorage.getItem('productsInCart');
         cartItems = JSON.parse(cartItems);
-        console.log(cartItems);
+        //console.log(cartItems);
         let pageContent = document.querySelector('.page-content');
         let pageContentDescription = document.querySelector('.page-content_description');
         let cartCost = localStorage.getItem('totalCost');
         let contact = document.querySelector('#contact');
 
         if(cartItems && pageContent){
-            console.log("Au moins un produit est dans le localStorage"); 
+            //console.log("Au moins un produit est dans le localStorage"); 
             pageContent.removeChild(pageContentDescription);
             const myArticle = document.createElement('article');
             const produit = document.createElement('h5');  
@@ -182,10 +182,10 @@ Object.values(cartItems).map(teddie => {
             let codePostalForm = document.getElementById("postal").value;
             let emailForm = document.getElementById("email").value;
 
-            var myHeaders = new Headers();
+            let myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
-            var raw = JSON.stringify({
+            let raw = JSON.stringify({
             "contact": {
                 "firstName": prenomForm,
                 "lastName": nomForm,
@@ -198,7 +198,7 @@ Object.values(cartItems).map(teddie => {
             ]
             });
 
-            var requestOptions = {
+            let requestOptions = {
             method: 'POST',
             headers: myHeaders,
             body: raw,
@@ -209,7 +209,7 @@ Object.values(cartItems).map(teddie => {
 
             fetch(apiOrder, requestOptions).then(function(response) {
                 response.json().then(function(text) {
-                console.log(text.orderId);
+                //console.log(text.orderId);
                 window.location = `./confirmation.html?id=${text.orderId}&name=${prenomForm}&prix=${total}`
                 });
             });
