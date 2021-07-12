@@ -6,11 +6,11 @@ function addToCart(){
     .then((resp) => resp.json())
     .then(function(data) {
         let teddie = data;
-        //console.log(data);
         data.quantity = 0; // On ajoute une variable quantité à l'objet qui affichera le nombre de fois que l'objet à été sélectionné.
+        //console.log(data);
         let carts = document.getElementsByClassName('buttonToCart');
         //console.log(carts);
-    for(let i=0; i < carts.length; i++) {
+        for(let i=0; i < carts.length; i++) {
         carts[i].addEventListener('click', () => {
             //console.log("ajout du produit au panier");
             cartNumbers(teddie[i]);
@@ -40,7 +40,7 @@ function addToCart(){
             confirm('Produit ajouté au panier');
             localStorage.setItem('cartNumbers', 1);
             document.querySelector('.cart span').textContent = 1;  
-        } 
+        }
         setItems(data);
     }
 // Modification de la variable quantité dans l'objet
