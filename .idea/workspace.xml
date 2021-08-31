@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -66,6 +69,11 @@
       <workItem from="1604420625934" duration="405000" />
       <workItem from="1625750628137" duration="3725000" />
       <workItem from="1626087629756" duration="3311000" />
+      <workItem from="1629979647975" duration="81000" />
+      <workItem from="1629981188718" duration="2374000" />
+      <workItem from="1630419491687" duration="88000" />
+      <workItem from="1630420815158" duration="105000" />
+      <workItem from="1630438964180" duration="359000" />
     </task>
     <servers />
   </component>

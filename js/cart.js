@@ -28,7 +28,7 @@ function addToCart(){
     }
 // Ajout du nombre de produit dans le localStorage au moment du click sur le bouton "ajouter au panier"
     function cartNumbers(teddie) {
-        //console.log("the teddie click is ", data);
+        console.log("the teddie click is ", data);
         let productNumbers = localStorage.getItem('cartNumbers');
         productNumbers = parseInt(productNumbers);
 
